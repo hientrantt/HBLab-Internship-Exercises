@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <title>Task Manager</title>
+</head>
+
+<body onload="getStorage()">
+    <div class="content">
+        <div class="manager">
+            <div class="part manager__title">
+                <h4 class="gray">TASK MANAGER</h4>
+            </div>
+            <hr>
+            <div class="part manager__informations">
+                <img src="img/avatar.jpg" alt="avatar">
+                <h4>Hien Tran</h4>
+                <p class="gray">hientrantt211@gmail.com</p>
+                <div class="manager__notifications">
+                    <i class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <div class="manager__progress">
+                    <p id="manager__progress__text">12/34</p>
+                    <div class="Loading">
+                        <div id="CompletionLoading"></div>
+                    </div>
+                    <div class="manager__progress__review">
+                        <div class="manager__progress__item">
+                            <p class="manager__progress__item__counter">12</p>
+                            <p class="manager__progress__item__name">Completed tasks</p>
+                        </div>
+                        <div class="manager__progress__item">
+                            <p class="manager__progress__item__counter">22</p>
+                            <p class="manager__progress__item__name">To do tasks</p>
+                        </div>
+                        <div class="manager__progress__item">
+                            <p class="manager__progress__item__counter">69</p>
+                            <p class="manager__progress__item__name">All completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="part manager__projects">
+                <h4>PROJECTS</h4>
+                <ul>
+                    <li>Marketing</li>
+                    <li>Design</li>
+                    <li>Development</li>
+                    <li>Finance</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="part manager__team">
+                <h4>TEAM</h4>
+                <div class="manager__team__menber">
+                    <img src="img/avatar.jpg" alt="member1">
+                    <img src="img/menber1.jpg" alt="member2">
+                    <img src="img/menber2.jpg" alt="member3">
+                    <img src="img/menber1.jpg" alt="member4">
+                    <img src="img/menber2.jpg" alt="member5">
+                </div>
+            </div>
+        </div>
+        <div class="calender">
+            <div class="calender__tools">
+                <div class="calender__tools__searching">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <h4>Calendar</h4>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="calender__mode">
+                <div class="calender__mode__date">
+                    <button>Week</button>
+                    <button>Month</button>
+                </div>
+                <div class="calender__currentMoth">
+                    <h5 id="calender__currentMoth__month">March</h5>
+                    <p id="calender__currentMoth__year">2022</p>
+                </div>
+                <div class="calender__action">
+                    <button class="button--white" style="margin-right: 10px;">Weekends</button>
+                    <button onclick="addTaskCalenderBtn()">Add task</button>
+                </div>
+            </div>
+            <div class="calender__display" id="calender__display" "></div>
+        </div>
+        <div id="task" data-date="">
+            <div>
+                <button data-clicked="0" id="task__categoryBtn" onclick="showCategoryBox()"><i class="fa-solid fa-plus"></i> Category</button>
+                <select name="category" id="task__categorySelect">
+                    <option value="Marketing">Marketing</option>
+                    <option value="Design">Design</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                </select>
+                <p id="task__date"><i class="fa-solid fa-calendar-days"></i> 08.02.2022</p>
+            </div>
+            <div>
+                <i  id="task__check" class="task__check fa-solid fa-check" onclick="editStatus()"></i>
+                <div>
+                    <input id="task__title" type="text" placeholder="Title of the task">
+                    <input id="task__description" type="text" placeholder="Description ...">
+                </div>
+            </div>
+            <div id="task__button">
+                <button id="task__addBtn" onclick="addTaskToCalendar()">Add task</button>
+                <button id="task__cancelBtn" onclick="closeTask()">Cancel</button>
+                <button id="task__saveEditBtn" onclick="saveEditTask()">Save</button>
+                <button id="task__closeBtn" onclick="closeTask()"><i class="fa-solid fa-xmark"></i></button>
+                <button id="task__deleteBtn" onclick="deleteTaskBtnClick()"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+   
+    </div>
+    <div class="deleteArea deleteAreaTop" ondrop="dropDelete(event)" ondragover="allowDrop(event)">
+    </div>
+    <div class="deleteArea deleteAreaRight" ondrop="dropDelete(event)" ondragover="allowDrop(event)">
+    </div>
+    <div class="deleteArea deleteAreaBottom" ondrop="dropDelete(event)" ondragover="allowDrop(event)">
+    </div>
+    <div class="deleteArea deleteAreaLeft" ondrop="dropDelete(event)" ondragover="allowDrop(event)">
+    </div>
+    <script src="Task.js"></script>
+    <script src="TaskList.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

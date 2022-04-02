@@ -1,0 +1,463 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    min-height: 100%;
+    z-index: -10;
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body {
+    /* font-family: "Montserrat", sans-serif; */
+    width: 100%;
+    color: #212529;
+    letter-spacing: 1px;
+    background-image: conic-gradient(at 28.5% 50%, #b9c6fb, #7695fb);
+    position: relative;
+    
+}
+
+.Loading {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+#CompletionLoading{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* animation: load 5s infinite; */
+    width: 0%;
+    background: #4185f4;
+}
+
+/* @keyframes load {
+    0% {
+        width: 0;
+    }
+
+    25% {
+        width: 40%;
+    }
+
+    50% {
+        width: 60%;
+    }
+
+    75% {
+        width: 75%;
+    }
+
+    100% {
+        width: 100%;
+    }
+} */
+
+/* CONTENT */
+.content {
+    margin: 60px 7%;;
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 #5176f191, 0 6px 20px 0 #5176f186;
+    border-radius: 10px;
+}
+.part {
+    padding: 20px 35px;
+}
+
+.gray {
+    color: #8d8d91;
+}
+
+.green {
+    color: #4285f4;
+}
+h4 {
+    font-size: 16px;
+}
+button {
+    border-radius: 70px;
+    border-color: #4185f4;
+    background-color: #4185f4;
+    color: white;
+    padding: 0 10px;
+    height: 25px;
+    font-size: 10px;
+    transition: all 0.5s;
+}
+select{
+    border-radius: 10px;
+}
+select:focus-visible{
+    outline: none;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #8d8d91 !important;
+    color: white !important;
+}
+input {
+    border: none;
+}
+input:focus-visible {
+    outline: none;
+}
+/* MANAGER */
+.manager {
+    width: 25%;
+    /* text-align: ; */
+}
+.manager__title,
+.manager__informations {
+    text-align: center;
+    font-weight: bold;
+}
+/* .manager__title h4{
+    color: #c2c3c7;
+} */
+.manager__informations img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.manager__informations > p {
+    font-size: 12px;
+    margin: 5px 0 20px 0;
+}
+.manager__notifications {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.manager__notifications i {
+    font-size: 13px;
+    border-radius: 50%;
+    color: #4285f4;
+    background-color: #d6d6f7;
+    width: 26px;
+    height: 26px;
+    line-height: 28px;
+}
+#manager__progress__text{
+    color: #b4b1b1;
+    font-size: 10px;
+    text-align: right;
+    transform: translateY(40%);
+}
+.manager__progress__review {
+    display: flex;
+    margin-top: 15px;
+    transform: translateX(-3px);
+}
+.manager__progress__item__counter {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.manager__progress__item__name {
+    font-size: 10px;
+    color: #8d8d91;
+}
+.manager__projects ul {
+    list-style-type: none;
+    list-style-position: inside;
+}
+.manager__projects li {
+    font-size: 12px;
+    padding-top: 12px;
+    color: #8d8d91;
+    /* line-height: 0; */
+}
+.manager__projects li::before {
+    content: "";
+    display: inline-block;
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-right: 12px;
+    transform: translateY(2px);
+}
+.manager__projects li:nth-child(2):before {
+    border-color: #7caf29;
+}
+.manager__projects li:nth-child(3):before {
+    border-color: #aaa02f
+}
+.manager__projects li:nth-child(4):before {
+    border-color: blue;
+}
+.manager__team__menber {
+    margin: 12px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+.manager__team img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+/* CALENDER */
+.calender {
+    width: 75%;
+}
+.calender p, .calender th{
+    font-size: 12px;
+}
+.calender__tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px;
+}
+.calender__tools__searching i,
+.calender__tools input::placeholder {
+    color: #21252950;
+    font-size: 14px;
+}
+.calender__tools h4 {
+    transform: translateX(-140%);
+}
+.calender__tools > i {
+    color: #21252950;
+    font-size: 20px;
+}
+.calender__mode {
+    background-color: #f0f0fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 45px;
+}
+.calender__mode__date {
+    display: flex;
+}
+.calender__mode__date button {
+    border-radius: 70px 0 0 70px;
+    padding: 0 5px 0 10px;
+}
+.calender__mode__date button:last-child {
+    border-radius: 0 70px 70px 0;
+    color: #4185f4;
+    padding: 0 10px 0 5px;
+    background-color: transparent;
+}
+
+.calender__currentMoth {
+    transform: translateX(57%);
+    text-align: center;
+    position: relative;
+}
+.calender__currentMoth::before {
+    content: "";
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid blue;
+    position: absolute;
+    right: 120%;
+    top: 30%;
+}
+.calender__currentMoth::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid blue;
+    position: absolute;
+    right: -30%;
+    top: 30%;
+}
+.calender__display {
+    background-color: #f0f0fa;
+    padding: 0 45px 40px;
+    display: flex;
+    justify-content: center;
+}
+.calender__display table {
+    border-collapse: collapse;
+}
+.calender__display table,
+.calender__display th,
+.calender__display td {
+    border: 1px solid #d1d1d6; 
+}
+.calender__display th {
+    height: 50px;
+}
+.calender__display td {
+    padding: 15px;
+    width: 150px;
+    height: 85px;
+    vertical-align: top;
+}
+.calender__display td{
+    font-size: 14px;
+    transition: all 0.5s;
+}
+.calender__display td.calender__date:hover{
+    background-color: #d0d0fc;
+    cursor: pointer;
+    color:#212529;
+}
+.calender__today{
+    background-color: #9797f0;
+    transform: scale(1.2);
+    color: white;
+    border-radius: 5px;
+    box-shadow: -20px 20px 20px 0 #9797f0;
+}
+
+/* OTHER */
+.button--white {
+    background-color: transparent;
+    border-color: #8d8d91;
+    color: #8d8d91;
+}
+
+/* POPUP TASK */
+#task{
+    position: absolute;
+    padding: 20px 20px;
+    bottom: 200px;
+    right: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: -20px 20px 20px 0 #03030321;
+    display: none;
+}
+#task>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+#task>div:nth-child(2){
+    align-items: baseline;
+}
+.task__check{
+    border-radius: 50%;
+    border: 2px solid #8d8d9169;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    color: #8d8d91b6;
+    line-height: 17px;
+    text-align: center;
+    margin: 0 10px 0 0 ;
+}
+.task__check:hover{
+    cursor: pointer;
+}
+#task input{
+    display: block;
+}
+#task__title{
+    margin: 0 0 10px 0;
+}
+#task__title::placeholder, #task__title{
+    font-size: 18px;
+    font-weight: 900;
+}
+#task__description, #task__date{
+    font-size: 11px;
+}
+#task__categoryBtn{
+    background-color: #b9c6fb;
+    border-color: #b9c6fb;
+}
+select[name="category"]{
+    display: none;
+    background-color: #B9C6FB;
+    color: white;
+    padding: 2px 4px; 
+}
+#task__button{
+    margin: 0 !important;
+    padding: 0 0 0 76%;
+}
+#task__closeBtn, #task__deleteBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    color: red;
+    border: none;
+}
+#task__closeBtn:hover, #task__deleteBtn:hover{
+    background-color: rgba(255, 0, 0, 0.452) !important;
+}
+td.calender__task[data-category="Marketing"]{
+    border-left: 4px solid #F24423;
+    color: #F24423;
+    background-color: #F0D5D9;
+}
+td.calender__task[data-category="Design"]{
+    border-left: 4px solid #7caf29;
+    color: #7caf29;
+    background-color: #E5F0DB;
+}
+td.calender__task[data-category="Development"]{
+    border-left: 4px solid #aaa02f;
+    color: #aaa02f;
+    background-color: #F2F0E7;
+}
+td.calender__task[data-category="Finance"]{
+    border-left: 4px solid #3468FA;
+    color: #3468FA;
+    background-color: #D3DBFB;
+}
+.calender__task__content{
+    padding: 0 10px;
+    font-size: 10px;
+}
+
+/* DELETE AREA */
+.deleteArea{
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    z-index: -1;
+}
+.deleteAreaTop{
+    height: 60px;
+    width: 100%;
+    top: 0;
+    transform: translateY(-100%);
+}
+.deleteAreaBottom{
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(100%);
+}
+.deleteAreaRight{
+    height: 100%;
+    width: 7%;
+    right: 0;
+    top: 0;
+}
+.deleteAreaLeft{
+    height: 100%;
+    width: 7%;
+    left: 0;
+    top: 0;
+}
